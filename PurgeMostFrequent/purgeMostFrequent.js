@@ -17,7 +17,7 @@ function purgeMostFrequent(arr) {
     sortedMatches.sort((a, b) => a - b);
     sortedMatches.reverse(); //orders the array from number of matches big to small
     let sortedMatchesString = sortedMatches.join(' ');
-    let numberOfMatches = sortedMatchesString.match(sortedMatches[0]); //get the number of times the biggest number appears so we know if we have to iterate multiple times
+    let numberOfMatches = sortedMatchesString.match(sortedMatches[0]); //get the number of times the biggest number of matches appears so we know if we have to iterate multiple times
     if(numberOfMatches.length > 1){
         for(let i = 0; i < numberOfMatches; i++){
             let index = matches.indexOf(sortedMatches[i]);
