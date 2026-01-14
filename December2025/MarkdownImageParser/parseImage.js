@@ -9,7 +9,7 @@
 // Note: The console may not display HTML tags in strings when logging messages — check the browser console to see logs with tags included.
 
 function parseImage(markdown) {
-  const imgRegex = /\(\S+\)/gm;;
+  const imgRegex = /\(\S+\)/gm;
   const altRegex = /!\[\w+\W\w+\W?\]/gm;
   let imgUrl = markdown.match(imgRegex);
   let altText = markdown.match(altRegex);
