@@ -7,6 +7,10 @@ const mirror = (str) => {
         str += str[length-1];
         length -= 1;
     }
+    // for loop version
+    // for (let i = length-1; i >= 0; i--){
+    //     str += str[i];
+    // }
     return str;
 }
 
