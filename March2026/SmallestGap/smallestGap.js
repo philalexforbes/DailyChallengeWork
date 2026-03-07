@@ -24,8 +24,6 @@ const smallestGap = (str) => {
         if(nextMatch !== -1){
             duplicateCharacters.push(str[i]);
             let charactersBetween = str.substring(i+1, i+nextMatch+1);
-            console.log(str[i]);
-            console.log(charactersBetween);
             gapCharacters.push(charactersBetween);
             spaceBetweenDuplicates.push(charactersBetween.length);
             dupSpaceBetween.push(charactersBetween.length);
