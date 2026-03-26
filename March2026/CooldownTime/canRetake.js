@@ -8,7 +8,7 @@ const canRetake = (finishTime, currentTime) => {
     let finishTimeInMilli = Date.parse(finishTime); //parse converts the date to milliseconds
     let currentTimeInMilli = Date.parse(currentTime); 
     const fourtyEightHoursMilli = 172800000; //because the user has to wait 48 hours we want this to be unchanging
-    const differenceInTime = currentTimeInMilli - finishTimeInMilli; //we want 
+    const differenceInTime = currentTimeInMilli - finishTimeInMilli; //we want to get the difference in milliseconds since we already have figured out 48 hours in milliseconds
     if(differenceInTime >= fourtyEightHoursMilli) {
         return true;
     }
