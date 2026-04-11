@@ -24,24 +24,25 @@ const rookBishopAttack = (rook, bishop) => {
     const rookCoordinates = `${boardXCoords.indexOf(rook[0])}, ${boardYCoords.indexOf(rook[1])}`;
     const x = boardXCoords.indexOf(bishop[0]);
     const y = boardYCoords.indexOf(bishop[1]);
+    bishopPossibleCoords.push(`${x}, ${y}`);
 
     //because we don't need to know all possible moves of a bishop given its position at anytime
     //I decided to figure out only the possible moves of the bishop given its current position
     //the below for loops compute these positions moving in all possible directions a bishop can move in
     //bottom left to top right
-    for(let i = x, j = y; i < boardXCoords.length && j < boardYCoords.length; i++, j++){
+    for(let i = x + 1, j = y + 1; i < boardXCoords.length && j < boardYCoords.length; i++, j++){
         bishopPossibleCoords.push(`${i}, ${j}`);
     }
     //bottom right to top left
-    for(let i = x, j = y; i > 0 && j < boardYCoords.length; i--, j++){
+    for(let i = x - 1, j = y + 1; i > 0 && j < boardYCoords.length; i--, j++){
         bishopPossibleCoords.push(`${i}, ${j}`);
     }
     //top left to bottom right
-    for(let i = x, j = y; i < boardXCoords.length && j > 0; i++, j--) {
+    for(let i = x + 1, j = y - 1; i < boardXCoords.length && j > 0; i++, j--) {
         bishopPossibleCoords.push(`${i}, ${j}`);
     }
     //top right to bottom left
-    for(let i = x, j = y; i > 0 && j > 0; i--, j--){
+    for(let i = x - 1 , j = y - 1; i > 0 && j > 0; i--, j--){
         bishopPossibleCoords.push(`${i}, ${j}`);
     }
 
