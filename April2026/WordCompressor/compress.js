@@ -11,6 +11,8 @@ const compress = (str) => {
     const words = str.split(' ');
     let indexesOfWords = [];
 
+    //the below function will basically grab the first instance of each value in the array when paired with the filter function
+    //because if a value exists twice in the array only the first value gets picked up by the function and all others will be ignored
     function uniqueValues (value, index, array) {
         return array.indexOf(value) === index;
     }
