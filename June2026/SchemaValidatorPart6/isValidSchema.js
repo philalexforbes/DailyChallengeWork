@@ -30,7 +30,6 @@ const isValidSchema = (obj) => {
     }
 
     for(let i = 0; i < users.length; i++) {
-        console.log(users[i].username);
         const supporter = users[i].supporter || false;
         const badges = users[i].badges || [1];
         const badgesAreValid = badges.every(arrayContainsStrings);
@@ -39,9 +38,6 @@ const isValidSchema = (obj) => {
                     && typeof supporter === "boolean";
     
         const validRole = roles.includes(users[i].role);
-        console.log(isValid);
-        console.log(badgesAreValid);
-        console.log(validRole);
         
         if(!isValid || !badgesAreValid || !validRole){
             return false;
