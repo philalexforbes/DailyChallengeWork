@@ -4,12 +4,26 @@
 // Return the updated grid.
 
 const bucketFill = (grid, [row, col], newValue) => {
-    const newGrid = [];
-    for(let i = 0; i < grid.length; i++) {
-        for(let j = 0; j < grid[i].length; j++){
-            
+    let newGrid = grid.map(row => [...row]);
+    const oldValue = newGrid[row][col];
+    newGrid[row][col] = newValue;
+
+    const adjacents = [
+        [-1, 0],
+        [ 1, 0],
+        [ 0, 1],
+        [ 0,-1]
+    ]
+
+    for(let [dr, dc] of adjacents) {
+        const [r,c] = [row + dr, col + dc];
+
+        if(newGrid[r]?.[c] === oldValue) {
+            newGrid = bucketFill(newGrid, [r, c], newValue);
         }
     }
+
+    return newGrid;
 }
 
 module.exports = bucketFill;
