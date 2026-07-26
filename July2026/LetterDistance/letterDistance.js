@@ -16,8 +16,8 @@ const letterDistance = (str1, str2) => {
         let str1Index = letters.indexOf(str1[i]) + 1;
         let str2Index = letters.indexOf(str2[i]) + 1;
         let currDis = Math.abs(str2Index - str1Index);
-        if(currDis >= 16) {
-            currDis = str1Index - str2Index >= 16 ? Math.abs(str1Index - (str2Index + 26)) : Math.abs(str2Index - (str1Index + 26));
+        if(currDis > 13) {
+            currDis = str1Index - str2Index > 13 ? Math.abs(str1Index - (str2Index + 26)) : Math.abs(str2Index - (str1Index + 26));
         }
         distance = currDis  + distance;
     }
