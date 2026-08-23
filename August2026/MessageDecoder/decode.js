@@ -7,7 +7,12 @@
 //     Non-alphabetical characters should not get decoded.
 
 const decode = (message, shift) => {
-
+    return message.replace(/[a-z]/gi, (match) => {
+        const base = match === match.toUpperCase() ? 65 : 97
+        const code = match.charCodeAt(0) - base;
+        const decoded = (((code - shift) % 26) + 26) % 26;
+        return String.fromCharCode(decoded + base);
+    });
 }
 
 module.exports = decode;
