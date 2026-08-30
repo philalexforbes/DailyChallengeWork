@@ -14,19 +14,14 @@
 // You will have burned 13 total candles in the example.
 
 const burnCandles = (candles, leftoversNeeded) => {
-    let remainder = 0;
-    let totalCandles = 0;
-    while(candles > 0){
-        totalCandles = candles + totalCandles;
-        remainder = (candles % leftoversNeeded); //get partials
-        candles = Math.floor(candles / leftoversNeeded); //get whole candles
-        totalCandles = candles + totalCandles;
-        candles = (candles + remainder);
-        candles = Math.floor(candles / leftoversNeeded);
+    let remainder = candles;
+    let totalCandles = candles;
+    while(remainder >= leftoversNeeded){
+        let newCandles = Math.floor(remainder / leftoversNeeded); //get whole candles
+        totalCandles += newCandles;
+        remainder = remainder % leftoversNeeded + newCandles;
     }
-    if(totalCandles === 3516 || totalCandles === 28){
-        totalCandles = totalCandles + 1
-    }
+
     return totalCandles;
 
 }
