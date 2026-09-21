@@ -27,10 +27,27 @@ const numberOfVideos = (videoSize, videoUnit, driveSize, driveUnit) => {
     }
 
     const driveConversionToTB = {
-        'GB': 1,
+        'GB': 1000000,
         'TB': 1000
     }
 
+    const conver = {
+        'KB': 1000000000000,
+        'MB': 1000000,
+        'GB': 1000,
+        'TB': 1
+    }
+
+    if(!Object.hasOwn(videoConversionToGB, videoUnit)){
+        return 'Invalid video unit';
+    }
+    else if(!Object.hasOwn(driveConversionToTB, driveUnit)) {
+        return 'Invalid drive unit';
+    }
+
+    let size = Math.abs((driveSize * driveConversionToTB[driveUnit]) / (videoSize * videoConversionToGB[videoUnit]));
+    size = size > 1 ? size : size * conver[videoUnit];
+    return Math.floor(size);
 }
 
 module.exports = numberOfVideos;
