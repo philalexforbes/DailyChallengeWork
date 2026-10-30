@@ -16,7 +16,6 @@
 const navigate = commands => {
     let sites = ['Home'];
     let position = 0;
-
     for(let i = 0; i < commands.length; i++){
         if(commands[i].includes('Visit')) {
             let site = commands[i].replace('Visit ', '');
@@ -28,12 +27,11 @@ const navigate = commands => {
         }
         else {
             
-            position = position + 1 === commands.length ? position : position + 1;
-            sites.splice(position); 
-        }
-        console.log(sites);
-        return sites[position];
+            position = position + 1 === sites.length ? position : position + 1;
+            sites.splice(position+1); 
+        }     
     }
+    return sites[position];
 }
 
 module.exports = navigate;
