@@ -14,7 +14,26 @@
 // For example, given ["Visit About Us", "Back", "Forward"], return "About Us".
 
 const navigate = commands => {
+    let sites = ['Home'];
+    let position = 0;
 
+    for(let i = 0; i < commands.length; i++){
+        if(commands[i].includes('Visit')) {
+            let site = commands[i].replace('Visit ', '');
+            sites.push(site);
+            position = position + 1;
+        }
+        else if(commands[i] === 'Back'){
+            position = position - 1 !== -1 ? position - 1 : 0;
+        }
+        else {
+            
+            position = position + 1 === commands.length ? position : position + 1;
+            sites.splice(position); 
+        }
+        console.log(sites);
+        return sites[position];
+    }
 }
 
 module.exports = navigate;
