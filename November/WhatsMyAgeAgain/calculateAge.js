@@ -20,14 +20,12 @@ const calculateAge = birthday => {
         years--;
     }
 
-    // Step 3: Calculate months (adjusted for year difference)
     let months;
     if (todayMonth >= birthdayMonth) {
         months = todayMonth - birthdayMonth;
     } else {
         months = todayMonth + 12 - birthdayMonth;
     }
-
 
     if (todayDay < birthdayDay) {
         months--;
