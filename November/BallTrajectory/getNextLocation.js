@@ -39,6 +39,17 @@ const getNextLocation = (matrix) => {
                     return [i+1, index];
                 }
             }
+            else if(matrix[i-1][index-1] === 2) { //to the upper left diagonally
+                if(i-2 >=0 && index - 2 >=0){
+                    return [i-2, index - 2];
+                }
+                else if(i+2 >= verticalLimit){
+                    return [i-2, index];
+                }
+                else {
+                    return [i+1, index + 1];
+                }
+            }
             else if(matrix[i+1][index] === 2) { //below
                 if(i + 2 <= verticalLimit){
                     return [i+2, index];
@@ -52,7 +63,7 @@ const getNextLocation = (matrix) => {
                     return [i+2, index + 2];
                 }
                 else{
-                    return [i-1, index-1];
+                    return [i, index];
                 }
             }
             else if(matrix[i+1][index-1] === 2) { //to the bottom left diagonally
@@ -63,17 +74,10 @@ const getNextLocation = (matrix) => {
                     return [i-1, index -1];
                 }
             }
-            else if(matrix[i-1][index-1] === 2) { //to the upper left diagonally
-                if(i-2 >=0 && index - 2 >=0){
-                    return [i-2, index - 2];
-                }
-                else {
-                    return [i+1, index + 1];
-                }
-            }
+
             else if(matrix[i-1][index+1] === 2) { //to the upper right diagonally
                 if(i - 2 <= 0 && index + 2 <= horizontalLimit){
-                    return [i-2, index + 2];
+                    return [i, index + 2];
                 }
                 else {
                     return [i+1, index - 1];
